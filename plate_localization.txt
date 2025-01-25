@@ -107,11 +107,10 @@ def plateLocalization(imgPath):
     cv.waitKey(0)
     cv.destroyAllWindows()
 
-#imgPath=r"D:\BFE\sample img for Lpr\CarPlate.jpg"
-#imgPath=r"D:\BFE\sample img for Lpr\CarPlate1.jpg"
-#imgPath = r"D:\BFE\sample img for Lpr\CarPlate2(JPG).jpg"
-#imgPath=r"D:\BFE\sample img for Lpr\CarPlate3.jpg"
-imgPath = r"D:\BFE\sample img for Lpr\CarPlate4.jpg"
+#imgPath=r"D:\sample img for Lpr\CarPlate.jpg"
+#imgPath=r"D:\sample img for Lpr\CarPlate1.jpg"
+#imgPath = r"D:\sample img for Lpr\CarPlate2(JPG).jpg"
+#imgPath=r"D:\sample img for Lpr\CarPlate3.jpg"
+imgPath = r"D:\sample img for Lpr\CarPlate4.jpg"
 plateLocalization(imgPath)
 
-#try to find the highest inetnisty pixels in the img

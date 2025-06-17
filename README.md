@@ -17,7 +17,10 @@ This project detects and recognizes license plate characters using a CNN-based m
 **License Plate Localization** – Detect license plate regions.  
 **Character Segmentation** – Extract individual characters.  
  **Character Recognition** – Classify characters using a trained neural network.  
-
+## An overview of the pipeline
+NOTE: This visualization only inlucdes the major steps involved for the detection the license plate the actual code includes many other functions to filter out 
+region of interest
+![Plot](basic steps perfomred during plate localization.png)
 ### Key Features
 ✔️ Data augmentation for improved robustness.  
 ✔️ Custom F1 score metric for evaluation.  

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ANPR - Automatic Number Plate Recognition</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="header-content">
+        <div class="logo">
+          <i class="fas fa-car"></i>
+          ANPR SYSTEM
+        </div>
+        <div class="nav-menu">
+          <a class="nav-btn" href="/vehicle_tracking">
+            <i class="fas fa-search"></i>
+            Flip Search
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+  
+
+<div class="criminal-records-container">
+  <h2 class="section-title">
+    Criminal Records
+  </h2>
+  <div class="records-table">
+    <table>
+      <thead>
+        <tr>
+          <th>Plate No.</th>
+          <th>Criminal Background</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% if all_criminal_records %}
+          {% for record in all_criminal_records %}
+          <tr>
+            <td>{{ record[0] }}</td>
+            <td>{{ record[1] }}</td>
+          </tr>
+          {% endfor %}
+        {% else %}
+          <tr>
+            <td colspan="2">No criminal records</td>
+          </tr>
+        {% endif %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+  <div class="container">
+    <div class="dashboard">
+      <div class="main-content">
+        <!-- Upload Section -->
+        <div class="upload-section">
+          <h2 class="section-title">
+            <i class="fas fa-cloud-upload-alt"></i>
+            Upload Vehicle Image
+          </h2>
+          
+          <form method="POST" enctype="multipart/form-data" id="uploadForm">
+            <div class="upload-area" id="uploadArea">
+              <div class="upload-icon">
+                <i class="fas fa-file-image"></i>
+              </div>
+              <div class="upload-text">
+                <h3>Drag & Drop Vehicle Image</h3>
+                <p>or click to browse files (JPG, PNG, JPEG)</p>
+              </div>
+              <button type="button" class="upload-btn" id="browseBtn">
+                <i class="fas fa-folder-open"></i>
+                Browse Files
+              </button>
+            </div>
+            
+            <input type="file" id="fileInput" name="image" accept="image/*" style="display: none;">
+            <button type="submit" class="upload-btn " style="margin-top: 15px; width: 100%;">
+              <i class="fas fa-cogs"></i>
+              Process Image
+            </button>
+          </form>
+        </div>
+        
+        
+        <div class="results-section">
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>S no.</th>
+                  <th>Vehicle Image</th>
+                  <th>Reg no.</th>
+                  <th>License Plate</th>
+                  <th>Vehicle Details</th>
+                </tr>
+              </thead>
+              
+              <tbody>
+                {% for vehicle in vehicles %}
+                <tr>
+                  <tr data-category="{{ vehicle.category | lower}}" data-number="{{ vehicle.number}}"></tr>
+                  <td>{{ loop.index }}</td>
+                  <td>
+                    <img src="{{ url_for('static', filename=vehicle.image) }}" alt="Vehicle" class="vehicle-img">
+                  </td>
+                  <td>
+                    {% if vehicle.number %}
+                    <span id="plate{{ loop.index }}">{{ vehicle.number }}</span>
+                    <button class="edit-btn" onclick="editPlate('plate{{ loop.index }}', 'editinput{{ loop.index }}', this)">Edit</button>
+                    <input type="text" id="editinput{{ loop.index }}" style="display:none; width: 100px; padding: 4px;">
+                    {% else %}
+                    N/A
+                    {% endif %}
+                  </td>
+                  <td>
+                    {% if vehicle.number %}
+                    <img src="{{ url_for('static', filename=vehicle.image) }}" alt="License Plate" class="plate-img">
+                    {% else %}
+                    N/A
+                    {% endif %}
+                  </td>
+                  <td>
+                    <button class="info-btn" onclick="showDetails('{{ vehicle.details | safe }}')">i</button>
+                  </td>
+                </tr>
+                {% else %}
+               
+                <tr>
+                  <td colspan="5" style="text-align: center; padding: 30px;">
+                    <div style="font-size: 18px; color: var(--gray);">
+                      <i class="car-icon fas fa-car" style="font-size: 48px; margin-bottom: 15px;"></i>
+                        <p>No vehicles processed yet. Upload an image to begin.</p>
+                    </div>
+                  </td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+     </div>
+    
+    <div class="footer-note">
+      NOTE: THIS IS A DEMONSTRATION PORTAL SHOWING HOW OCR EXTRACTS LICENSE PLATE NUMBERS AND RETRIEVES VEHICLE DETAILS FROM A DATABASE
+    </div>
+  </div>
+  <script src="{{url_for('static', filename='script.js')}}"></script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ANPR - Automatic Number Plate Recognition</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="{{url_for('static', filename='vehicle_tracking.css')}}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-search"></i>
+                    Flip Search
+                </div>
+                <div>
+                    <a class="nav-btn" href="{{ url_for('index')}}">ANPR SYSTEM</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+  <div class="search-section">
+    <h3>Enter the last 4 digits or vehicle colour to search</h3>
+    <form method="POST" enctype="multipart/form-data" id="uploadForm" class="search-form">
+      <input type="text" id="last4Digits" name="last4Digits" placeholder="Last 4 Digits (e.g. 1234)">
+      <input type="text" id="vehicle-colour" name="vehicle-colour" placeholder="Enter the vehicle colour">
+      <button type="submit" class="search-btn" onclick="searchVehicle()">
+        <i class="fas fa-search"></i>
+      </button>
+    </form>
+  </div>
+</div>
+
+
+    <div class="results-section">
+        <h3>Search Results</h3>
+        <div class="table-container">
+            {% if search_results %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>Plate No.</th>
+                        <th>Owner</th>
+                        <th>Colour</th>
+                        <th>Phone No.</th>
+                        <th>Bank Account No.</th>
+                        <th>Social Media Handle</th>
+                        <th>Vehicle Image</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for result in search_results %}
+                    <tr>
+                        <td>{{ result.plate_no }}</td>
+                        <td>{{ result.owner_name }}</td>
+                        <td>{{ result.colour }}</td>
+                        <td>{{ result.phone_number }}</td>
+                        <td>{{ result.bank_account_number }}</td>
+                        <td>{{ result.social_media_handle }}</td>
+                        {% if result.vehicle_image %}
+                        <td><img src="{{ url_for('static', filename=result.vehicle_image) }}" alt="Vehicle Image"></td>
+                        {% else %}
+                        <td>No Image Available</td>
+                        {% endif %}
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% else %}
+            <p class="no-results">No results found.</p>
+            {% endif %}
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='vehicle_tracking.js') }}"></script>
+</body>

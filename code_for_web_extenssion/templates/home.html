@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='homepage_style.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+  <title>ANPR AI | Auromatic License Plate Recognition</title>
+  <script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.24/build/spline-viewer.js"></script>
+</head>
+<body>
+  <div class="box">
+    <spline-viewer url="https://prod.spline.design/GOtKlhzFBCVp508v/scene.splinecode"></spline-viewer>
+      <div class="overlay">
+       <div class="content">
+        
+        <div class="logo">
+          <span>ANPR</span>
+        </div>
+        <h1>Automatic <span>License Plate Recognition</span> System</h1>
+        <p>This project is an AI-powered Automatic Number Plate Recognition (ANPR) system. 
+        Instead of real-time video, users can upload a vehicle image, and the system will detect and recognize the license plate.
+        Behind the scenes, it uses smart image processing and AI models to clean up the image, find the plate, and read the characters. 
+        Once detected, it checks a sample database to show the vehicle's details like registration info and alerts if it's wanted, stolen, or unknown.</p>
+        <div class="features">
+
+          <div class="feature">
+            <span>Custom built CNN trained on a custom dataset</span>
+          </div>
+
+          <div class="feature">
+            <span>Vehicle database integration</span>
+          </div>
+
+          <div class="feature">
+            <span>Instant alerts</span>
+          </div>
+
+          <div class="feature">
+            <span>Detailed Vehicle review</span>
+          </div>
+
+        </div>
+        
+        <div class="cta-container">
+          <a class="btn btn-primary" href="{{ url_for('index')}}">
+             Live Demo
+          </a>
+
+          <a class="btn btn-secondary" href="D:\My LPR project\code_for_deployment_web_extenssion\templates\index.html">
+            Documentation
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</body>
+</html>

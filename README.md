@@ -72,10 +72,13 @@ NOTE: This visualization only includes the major steps involved for the detectio
 ![Plate Localization](https://raw.githubusercontent.com/Pranavkr10/LPR/b1374a44ee4440ecffe0de70b2be97336d037ebb/basic%20steps%20perfomred%20during%20plate%20localization.png)
 
 ### Key Features
-✔️ Data augmentation for improved robustness.
-✔️ Custom F1 score metric for evaluation.
-✔️ Uses TensorFlow and Keras for training.
-✔️ Processes images to recognize characters from license plates.
+ Data augmentation for improved robustness.
+ 
+ Custom F1 score metric for evaluation.
+ 
+ Uses TensorFlow and Keras for training.
+ 
+ Processes images to recognize characters from license plates.
 
 ---
 

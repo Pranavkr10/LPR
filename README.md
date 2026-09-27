@@ -1,9 +1,11 @@
 # License Plate Recognition and Character Recognition
 
- *A deep learning-based license plate recognition system using TensorFlow and OpenCV.*
+*A deep learning-based license plate recognition system using TensorFlow and OpenCV.*
 
 ## 📌 Table of Contents
 - [Introduction](#introduction)
+- [Project Demo](#project-demo)
+- [Patent Application](#patent-application)
 - [Prerequisites](#prerequisites)
 - [Setup and Installation](#setup-and-installation)
 - [Data Preparation](#data-preparation)
@@ -11,38 +13,98 @@
 - [Training the Model](#training-the-model)
 - [Testing the Model](#testing-the-model)
 
-##  Introduction
+---
+
+## 🎥 Project Demo
+<video src="https://raw.githubusercontent.com/Pranavkr10/LPR/main/front_page.mp4" controls autoplay muted loop playsinline loading="lazy" width="800">
+Your browser does not support the video tag. <a href="https://github.com/Pranavkr10/LPR/blob/main/front_page.mp4">View the video directly</a>.
+</video>
+
+**[Open Front Page UI Video](https://github.com/Pranavkr10/LPR/blob/main/front_page.mp4)**
+
+### 🔍 Working Demonstration
+
+<video src="https://raw.githubusercontent.com/Pranavkr10/LPR/main/demo_working.mp4" controls autoplay muted loop playsinline loading="lazy" width="800">
+Your browser does not support the video tag. <a href="https://github.com/Pranavkr10/LPR/blob/main/demo_working.mp4">View the video directly</a>.
+</video>
+
+**[Open Working Demo Video](https://github.com/Pranavkr10/LPR/blob/main/demo_working.mp4)**
+
+
+---
+
+## 📜 Patent Application
+
+This project is associated with an Indian patent application titled:
+
+### **An AI-Driven Automatic Number Plate Recognition System**
+
+| Patent Detail | Information |
+|---|---|
+| **Application No.** | **202511103785 A** |
+| **Date of Filing** | 28/10/2025 |
+| **Publication Date** | 12/12/2025 |
+| **Title** | An AI-Driven Automatic Number Plate Recognition System |
+| **Applicant** | Manipal University Jaipur |
+| **Country** | India |
+| **Inventors** | Mr. Pranav Kumar, Dr. Bhawana Sharma, Dr. Lokesh Sharma |
+| **International Classification** | G06T0005400000, G08G0001017000, G06V0020620000, G06V0030146000, G06V0010750000 |
+
+### 👨‍🔬 Inventors
+
+1. **Mr. Pranav Kumar**
+2. **Dr. Bhawana Sharma**
+3. **Dr. Lokesh Sharma**
+
+### 🏫 Applicant
+
+**Manipal University Jaipur**
+Off Jaipur-Ajmer Expressway, Post: Dehmi Kalan, Jaipur-303007, Rajasthan, India
+
+### 📄 Patent Abstract
+
+The present invention relates to an AI-driven Automatic Number Plate Recognition (ANPR) system. The system comprises an image acquisition module that captures vehicle images from camera feeds or uploaded sources, followed by a multistage image preprocessing pipeline incorporating noise reduction, normalization, Contrast Limited Adaptive Histogram Equalization (CLAHE), and adaptive thresholding to enhance plate visibility in diverse lighting and noise conditions.
+
+A trained model localizes the license plate and recognises through a dual-model CNN architecture for general classification and another for resolving ambiguous character pairs such as **'O' and '0'**. Post-processing with OCR correction and pattern matching validates results against regional plate formats.
+
+The recognized number is cross-checked with a connected vehicle database containing registration details and status flags. A web-based module displays vehicle information and triggers visual or audio alerts for flagged vehicles, enabling efficient real-time verification for law enforcement and smart city surveillance systems.
+
+---
+
+## Introduction
+
 This project detects and recognizes license plate characters using a CNN-based model trained on a dataset of images. The process involves:
 
-**License Plate Localization** – Detect license plate regions.  
-**Character Segmentation** – Extract individual characters.  
- **Character Recognition** – Classify characters using a trained neural network. 
- 
+**License Plate Localization** – Detect license plate regions.
+**Character Segmentation** – Extract individual characters.
+**Character Recognition** – Classify characters using a trained neural network.
+
 ## An overview of the plate localization
-NOTE: This visualization only inlucdes the major steps involved for the detection of a license plate the actual code includes many other functions to filter out 
-      the region of interest
+
+NOTE: This visualization only includes the major steps involved for the detection of a license plate; the actual code includes many other functions to filter out
+      the region of interest.
 
 ![Plate Localization](https://raw.githubusercontent.com/Pranavkr10/LPR/b1374a44ee4440ecffe0de70b2be97336d037ebb/basic%20steps%20perfomred%20during%20plate%20localization.png)
 
-
 ### Key Features
-✔️ Data augmentation for improved robustness.  
-✔️ Custom F1 score metric for evaluation.  
-✔️ Uses TensorFlow and Keras for training.  
-✔️ Processes images to recognize characters from license plates.  
+✔️ Data augmentation for improved robustness.
+✔️ Custom F1 score metric for evaluation.
+✔️ Uses TensorFlow and Keras for training.
+✔️ Processes images to recognize characters from license plates.
 
 ---
+
 ## Prerequisites
 Ensure you have the following installed:
 
-- Python 3.x  
-- TensorFlow 2.x  
-- OpenCV  
-- NumPy  
-- Scikit-learn  
-- Matplotlib  
-- Google Colab (optional)  
-- Google Drive (optional for dataset storage)  
+- Python 3.x
+- TensorFlow 2.x
+- OpenCV
+- NumPy
+- Scikit-learn
+- Matplotlib
+- Google Colab (optional)
+- Google Drive (optional for dataset storage)
 
 ## Setup and Installation
 
@@ -76,18 +138,18 @@ Dataset structure:
     │   └── ...
 ```
 
-📌 **Training Data:** Used for model learning.  
-📌 **Validation Data:** Used for evaluation.  
+📌 **Training Data:** Used for model learning.
+📌 **Validation Data:** Used for evaluation.
 
 Data augmentation is applied using `ImageDataGenerator`.
 
 ## Model Architecture
 The CNN model includes:
 
-🔹 **Conv2D Layers** – Feature extraction  
-🔹 **MaxPooling Layers** – Downsampling  
-🔹 **Flatten Layer** – Converts feature maps into 1D  
-🔹 **Dense Layers** – Fully connected for classification  
+🔹 **Conv2D Layers** – Feature extraction
+🔹 **MaxPooling Layers** – Downsampling
+🔹 **Flatten Layer** – Converts feature maps into 1D
+🔹 **Dense Layers** – Fully connected for classification
 
 **Model Summary:**
 
@@ -104,9 +166,9 @@ The CNN model includes:
 | Dropout             | (None, 256)        | 0          |
 | Dense               | (None, 36)         | 9,252      |
 
-**Total Parameters:** 397,668 (1.52 MB)  
-**Trainable Parameters:** 397,668  
-**Non-trainable Parameters:** 0  
+**Total Parameters:** 397,668 (1.52 MB)
+**Trainable Parameters:** 397,668
+**Non-trainable Parameters:** 0
 
 ## Training the Model
 
@@ -128,7 +190,7 @@ history = model.fit(
 )
 ```
 
-###  Custom F1 Score Metric
+### Custom F1 Score Metric
 ```python
 class F1Score(tf.keras.metrics.Metric):
     # Implementation of custom F1 score metric
@@ -160,6 +222,3 @@ def plateLocalization(imgPath):
     pass
 ```
 ---
-*If you like this project or this project help you to explore more about computer vision and machine learning, give it a ⭐ on GitHub!*
-
-This project is still under progress

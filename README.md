@@ -16,7 +16,7 @@
 ---
 
 ## 🎥 Project Demo
-https://github.com/user-attachments/assets/c726b11a-1775-4e05-8b13-299c99f7e6d9
+https://github.com/user-attachments/assets/7667cb36-da7f-4ae7-8f50-5533d5f9d110
 Your browser does not support the video tag. <a href="https://github.com/Pranavkr10/LPR/blob/main/front_page.mp4">View the video directly</a>.
 </video>
 

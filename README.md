@@ -2,7 +2,7 @@
 
 *A deep learning-based license plate recognition system using TensorFlow and OpenCV.*
 
-## 📌 Table of Contents
+## Table of Contents
 - [Introduction](#introduction)
 - [Project Demo](#project-demo)
 - [Patent Application](#patent-application)
@@ -15,24 +15,14 @@
 
 ---
 
-## 🎥 Project Demo
+##  Project Demo
 https://github.com/user-attachments/assets/7667cb36-da7f-4ae7-8f50-5533d5f9d110
 
 
 **[Open Front Page UI Video](https://github.com/Pranavkr10/LPR/blob/main/front_page.mp4)**
-
-### 🔍 Working Demonstration
-
-<video src="https://raw.githubusercontent.com/Pranavkr10/LPR/main/demo_working.mp4" controls autoplay muted loop playsinline loading="lazy" width="800">
-Your browser does not support the video tag. <a href="https://github.com/Pranavkr10/LPR/blob/main/demo_working.mp4">View the video directly</a>.
-</video>
-
-**[Open Working Demo Video](https://github.com/Pranavkr10/LPR/blob/main/demo_working.mp4)**
-
-
 ---
 
-## 📜 Patent Application
+## Patent Application
 
 This project is associated with an Indian patent application titled:
 
@@ -49,18 +39,18 @@ This project is associated with an Indian patent application titled:
 | **Inventors** | Mr. Pranav Kumar, Dr. Bhawana Sharma, Dr. Lokesh Sharma |
 | **International Classification** | G06T0005400000, G08G0001017000, G06V0020620000, G06V0030146000, G06V0010750000 |
 
-### 👨‍🔬 Inventors
+###  Inventors
 
 1. **Mr. Pranav Kumar**
 2. **Dr. Bhawana Sharma**
 3. **Dr. Lokesh Sharma**
 
-### 🏫 Applicant
+### Applicant
 
 **Manipal University Jaipur**
 Off Jaipur-Ajmer Expressway, Post: Dehmi Kalan, Jaipur-303007, Rajasthan, India
 
-### 📄 Patent Abstract
+### Patent Abstract
 
 The present invention relates to an AI-driven Automatic Number Plate Recognition (ANPR) system. The system comprises an image acquisition module that captures vehicle images from camera feeds or uploaded sources, followed by a multistage image preprocessing pipeline incorporating noise reduction, normalization, Contrast Limited Adaptive Histogram Equalization (CLAHE), and adaptive thresholding to enhance plate visibility in diverse lighting and noise conditions.
 
@@ -122,7 +112,7 @@ drive.mount('/content/drive')
 
 Place your dataset in `/content/drive/MyDrive/info/data`.
 
-## 📂 Data Preparation
+## Data Preparation
 Dataset structure:
 
 ```
@@ -137,8 +127,8 @@ Dataset structure:
     │   └── ...
 ```
 
-📌 **Training Data:** Used for model learning.
-📌 **Validation Data:** Used for evaluation.
+ **Training Data:** Used for model learning.
+ **Validation Data:** Used for evaluation.
 
 Data augmentation is applied using `ImageDataGenerator`.
 

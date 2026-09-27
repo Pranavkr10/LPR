@@ -16,7 +16,7 @@
 ---
 
 ## 🎥 Project Demo
-<video src="https://raw.githubusercontent.com/Pranavkr10/LPR/main/front_page.mp4" controls autoplay muted loop playsinline loading="lazy" width="800">
+https://github.com/user-attachments/assets/c726b11a-1775-4e05-8b13-299c99f7e6d9
 Your browser does not support the video tag. <a href="https://github.com/Pranavkr10/LPR/blob/main/front_page.mp4">View the video directly</a>.
 </video>
 

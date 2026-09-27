@@ -18,10 +18,6 @@
 ##  Project Demo
 https://github.com/user-attachments/assets/7667cb36-da7f-4ae7-8f50-5533d5f9d110
 
-
-**[Open Front Page UI Video](https://github.com/Pranavkr10/LPR/blob/main/front_page.mp4)**
----
-
 ## Patent Application
 
 This project is associated with an Indian patent application titled:
